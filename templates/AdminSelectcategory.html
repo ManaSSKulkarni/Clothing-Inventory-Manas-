@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='adminselectcategory.css') }}">
+    </head>
+    <header>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br><br>
+        <h1>CLOTHING INVENTORY</h1>
+        <h2>ADMIN PAGE</h2>
+        <br>
+    </header>
+    <body>
+        <br><br>
+        <center>
+            <h3>SELECT CATEGORY</h3>
+            <div class="container">
+                <br><br>
+                <form action="{{ url_for('adminselectcategory') }}" method="POST">
+                    <button type="submit" name="category" value="GENTS" class="gents-btn">GENTS</button>
+                </form>
+                <form action="{{ url_for('adminselectcategory') }}" method="POST">
+                    <button type="submit" name="category" value="LADIES" class="ladies-btn">LADIES</button>
+                </form>
+                <br><br><br>
+            </div>
+        </center>
+    </body>
+</html>
+        

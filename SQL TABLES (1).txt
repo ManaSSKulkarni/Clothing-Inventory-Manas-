@@ -1,0 +1,278 @@
+CREATE DATABASE clothing_inventory;
+USE clothing_inventory;
+
+-- Employee table
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_name VARCHAR(25),
+    emp_phone VARCHAR(15),
+    date_of_joining DATE,
+    emp_salary DECIMAL;
+);
+
+-- Garment table
+CREATE TABLE Garments (
+    g_id VARCHAR(15) PRIMARY KEY,
+    garment_type VARCHAR(25),
+    garment_category VARCHAR(25),
+    available_quantity INT,
+    g_size INT,
+    g_price DECIMAL(10,2)
+);
+
+-- Customer table
+CREATE TABLE Customers (
+    cust_id INT PRIMARY KEY AUTO_INCREMENT,
+    cust_name VARCHAR(25),
+    username VARCHAR(25)
+    cust_email VARCHAR(25),
+    cust_contact VARCHAR(15),
+    payment_mode VARCHAR(25)
+);
+
+CREATE TABLE Orders (
+    order_number INT PRIMARY KEY AUTO_INCREMENT, 
+    order_date DATE,
+    bill_amt DECIMAL(10,2),
+    cust_id INT,
+    ordered_by VARCHAR(30),
+    FOREIGN KEY (cust_id) REFERENCES Customers(cust_id)
+);
+
+UPDATE Orders o
+JOIN Customers c ON o.cust_id = c.cust_id
+SET o.ordered_by = c.cust_name;
+
+
+CREATE TABLE Inventory (
+    inventory_name VARCHAR(30) PRIMARY KEY, 
+    current_products INT,
+    categories VARCHAR(30),
+    current_customers INT,
+    current_employees INT,
+    total_orders INT
+);
+
+
+INSERT INTO Garments (g_id, garment_type, garment_category, available_quantity, g_size, g_price)
+VALUES
+('G001', 'Shirt', 'GENTS', 50, 30, 29.99),
+('G002', 'Shirt', 'GENTS', 50, 32, 29.99),
+('G003', 'Shirt', 'GENTS', 50, 34, 29.99),
+('G004', 'Shirt', 'GENTS', 50, 36, 29.99),
+('G005', 'Shirt', 'GENTS', 50, 38, 29.99),
+('G006', 'Shirt', 'GENTS', 50, 40, 29.99),
+('G007', 'TShirt', 'GENTS', 30, 30, 34.99),
+('G008', 'TShirt', 'GENTS', 30, 32, 34.99),
+('G009', 'TShirt', 'GENTS', 30, 34, 34.99),
+('G0010', 'TShirt', 'GENTS', 30, 36, 34.99),
+('G0011', 'TShirt', 'GENTS', 30, 38, 34.99),
+('G0012', 'TShirt', 'GENTS', 30, 40, 34.99),
+('G0013', 'Jeans', 'LADIES', 20, 30, 39.99),
+('G0014', 'Jeans', 'LADIES', 20, 32, 39.99),
+('G0015', 'Jeans', 'LADIES', 20, 34, 39.99),
+('G0016', 'Jeans', 'LADIES', 20, 36, 39.99),
+('G0017', 'Jeans', 'LADIES', 20, 38, 39.99),
+('G0018', 'Jeans', 'LADIES', 20, 40, 39.99),
+('G0019', 'Trousers', 'GENTS', 40, 30, 34.99),
+('G0020', 'Trousers', 'GENTS', 40, 32, 34.99),
+('G0021', 'Trousers', 'GENTS', 40, 34, 34.99),
+('G0022', 'Trousers', 'GENTS', 40, 36, 34.99),
+('G0023', 'Trousers', 'GENTS', 40, 38, 34.99),
+('G0024', 'Trousers', 'GENTS', 40, 40, 34.99),
+('G0025', 'T-shirt', 'LADIES', 35, 28, 29.99),
+('G0026', 'T-shirt', 'LADIES', 35, 30, 29.99),
+('G0027', 'T-shirt', 'LADIES', 35, 32, 29.99),
+('G0028', 'T-shirt', 'LADIES', 35, 34, 29.99),
+('G0029', 'T-shirt', 'LADIES', 35, 36, 29.99),
+('G0030', 'T-shirt', 'LADIES', 35, 38, 29.99),
+('G0031', 'Jacket', 'GENTS', 10, 36, 59.99),
+('G0032', 'Jacket', 'GENTS', 10, 38, 59.99),
+('G0033', 'Jacket', 'GENTS', 10, 40, 59.99),
+('G0034', 'Jacket', 'GENTS', 10, 42, 59.99),
+('G0035', 'Jacket', 'GENTS', 10, 44, 59.99),
+('G0036', 'Sweater', 'LADIES', 18, 32, 44.99),
+('G0037', 'Sweater', 'LADIES', 18, 34, 44.99),
+('G0038', 'Sweater', 'LADIES', 18, 36, 44.99),
+('G0039', 'Sweater', 'LADIES', 18, 38, 44.99),
+('G0040', 'Sweater', 'LADIES', 18, 40, 44.99),
+('G0041', 'Shorts', 'GENTS', 22, 30, 14.99),
+('G0042', 'Shorts', 'GENTS', 22, 32, 14.99),
+('G0043', 'Shorts', 'GENTS', 22, 34, 14.99),
+('G0044', 'Shorts', 'GENTS', 22, 36, 14.99),
+('G0045', 'Blazer', 'GENTS', 8, 40, 74.99),
+('G0046', 'Blazer', 'GENTS', 8, 42, 74.99),
+('G0047', 'Blazer', 'GENTS', 8, 44, 74.99),
+('G0048', 'Cardigan', 'LADIES', 12, 34, 54.99),
+('G0049', 'Cardigan', 'LADIES', 12, 36, 54.99),
+('G0050', 'Cardigan', 'LADIES', 12, 38, 54.99),
+('G0051', 'Cardigan', 'LADIES', 12, 40, 54.99),
+('G0052', 'Coat', 'GENTS', 5, 42, 89.99),
+('G0053', 'Coat', 'GENTS', 5, 44, 89.99),
+('G0054', 'Coat', 'GENTS', 5, 46, 89.99),
+('G0055', 'Pants', 'LADIES', 25, 30, 34.99),
+('G0056', 'Pants', 'LADIES', 25, 32, 34.99),
+('G0057', 'Pants', 'LADIES', 25, 34, 34.99),
+('G0058', 'Pants', 'LADIES', 25, 36, 34.99),
+('G0059', 'Hoodie', 'GENTS', 20, 34, 44.99),
+('G0060', 'Hoodie', 'GENTS', 20, 36, 44.99),
+('G0061', 'Hoodie', 'GENTS', 20, 38, 44.99),
+('G0062', 'Hoodie', 'GENTS', 20, 40, 44.99),
+('G0063', 'Hoodie', 'LADIES', 20, 34, 44.99),
+('G0064', 'Hoodie', 'LADIES', 20, 36, 44.99),
+('G0065', 'Hoodie', 'LADIES', 20, 38, 44.99),
+('G0066', 'Hoodie', 'LADIES', 20, 40, 44.99);
+
+
+INSERT INTO Employees (emp_name, emp_phone, date_of_joining, emp_salary)
+VALUES
+    ('Amit Kumar', '+91-9876543210', '2022-01-01', 50000.00),
+    ('Sneha Sharma', '+91-9876543211', '2022-02-15', 55000.00),
+    ('Rahul Singh', '+91-9876543212', '2022-03-20', 60000.00),
+    ('Priya Verma', '+91-9876543213', '2022-04-10', 52000.00),
+    ('Vikas Patel', '+91-9876543214', '2022-05-05', 58000.00),
+    ('Kavita Gupta', '+91-9876543215', '2022-06-30', 62000.00),
+    ('Ravi Rajput', '+91-9876543216', '2022-07-12', 54000.00),
+    ('Shivani Singh', '+91-9876543217', '2022-08-25', 56000.00),
+    ('Ajay Sharma', '+91-9876543218', '2022-09-18', 58000.00),
+    ('Anita Yadav', '+91-9876543219', '2022-10-22', 60000.00);
+
+
+INSERT INTO Inventory (inventory_name, current_products, categories, current_customers, current_employees, total_orders)
+SELECT
+	'ClothingInventory' as inventory_name;
+COUNT(*) AS current_products,
+    'LADIES and GENTS' AS categories,
+    (SELECT COUNT(*) FROM Customers) AS current_customers,
+    (SELECT COUNT(*) FROM Employees) AS current_employees,
+    (SELECT COUNT(*) FROM Orders) AS total_orders
+FROM Garments;
+
+
+
+
+
+
+
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER update_inventory_trigger 
+AFTER INSERT ON Customers
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_customers = (SELECT COUNT(*) FROM Customers),
+        total_orders = (SELECT COUNT(*) FROM Orders);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_2
+AFTER INSERT ON Orders
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET total_orders = (SELECT COUNT(*) FROM Orders);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_3
+AFTER INSERT ON Employees
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_employees = (SELECT COUNT(*) FROM Employees);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_4 
+AFTER UPDATE ON Customers
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_customers = (SELECT COUNT(*) FROM Customers),
+        total_orders = (SELECT COUNT(*) FROM Orders);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_5
+AFTER UPDATE ON Orders
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET total_orders = (SELECT COUNT(*) FROM Orders);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_6
+AFTER UPDATE ON Employees
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_employees = (SELECT COUNT(*) FROM Employees);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_7
+AFTER DELETE ON Customers
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_customers = (SELECT COUNT(*) FROM Customers),
+        total_orders = (SELECT COUNT(*) FROM Orders);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_8
+AFTER DELETE ON Orders
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET total_orders = (SELECT COUNT(*) FROM Orders);
+END$$
+
+CREATE TRIGGER update_inventory_trigger_9
+AFTER DELETE ON Employees
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_employees = (SELECT COUNT(*) FROM Employees);
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER update_inventory_trigger_insert
+AFTER INSERT ON Garments
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_products = current_products + 1;
+END$$
+
+CREATE TRIGGER update_inventory_trigger_update
+AFTER UPDATE ON Garments
+FOR EACH ROW
+BEGIN
+    -- Assuming the count remains unchanged in an update, no action needed
+    -- If your logic requires adjusting the count for specific updates, do it here
+END$$
+
+CREATE TRIGGER update_inventory_trigger_delete
+AFTER DELETE ON Garments
+FOR EACH ROW
+BEGIN
+    UPDATE Inventory 
+    SET current_products = current_products - 1;
+END$$
+
+DELIMITER ;
+
+
+DELIMITER //
+CREATE TRIGGER prevent_negative_quantity
+BEFORE UPDATE ON Garments
+FOR EACH ROW
+BEGIN
+    IF NEW.available_quantity < 0 THEN
+        SET NEW.available_quantity = 0;
+    END IF;
+END //
+DELIMITER ;

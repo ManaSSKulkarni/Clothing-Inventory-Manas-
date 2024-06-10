@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <center>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking to the CSS file in the static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Basic.css') }}">
+    <title>About Page - Clothing Inventory</title>
+    </center>
+</head>
+
+<header>
+    <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+    <br><br>
+    <h1>CLOTHING INVENTORY</h1>
+    <h2>ABOUT THE WEBSITE</h2>
+    <br>
+</header>
+<input type="checkbox" id="menu-toggle" class="hidden-checkbox">
+<label for="menu-toggle" class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+<nav class="menu">
+    <ul>
+        <li><a href="{{ url_for('home') }}"><div class="nav-box"><h2>HOME</h2></div></a></li>
+        <br><li><a href="{{ url_for('sign_in') }}"><div class="nav-box"><h2>PLACE YOUR ORDER</h2></div></a></li>
+        <br><li><a href="{{ url_for('admin_login') }}"><div class="nav-box"><h2>ADMIN LOGIN</h2></div></a></li>
+    </ul>
+</nav>
+
+<body>
+<center>
+        <!-- About the website content -->
+        <div class="wrapper">
+            <div class="verify-container">
+                <div class="order-details">
+                    <h3>BRIEF DESCRIPTION</h3>
+                    <br><br>            
+                    A DATABASE MANAGEMENT SYSTEM DEDICATED TO
+                    <br> MANAGING OUR CLOTHING INVENTORY EFFICIENTLY.
+                    <br><br>A LIST OF CLOTHES AVAILABLE 
+                    <br>UNDER THE CATEGORIES OF "GENTS" AND "LADIES".
+                    <br><br>CUSTOMER CAN CREATE ACCOUNT, EXPLORE THE INVENTORY,
+                    <br>PLACE ORDERS, AND RECEIVE BILLS FOR THE RESPECTIVE ORDER.
+                </div>
+            </div>
+            <div class="verify-container">
+                <div class="order-details">
+                    <h3>KEY FEATURES</h3>
+                    <br>
+                    <p>
+                        <br>SECURE ACCOUNT CREATION.
+                        <br><br>DETAILED LIST OF CLOTHES.
+                        <br><br>CATEGORIZED UNDER "GENTS" AND "LADIES".
+                        <br><br>EFFORTLESS ORDERING PROCESS.
+                        <br><br>DETAILED BILL GENERATION.
+                    </p>
+                </div>
+            </div>
+        </div>
+</center>
+<br><hr><br>
+<center>
+    <h1>INVENTORY INFO</h1>
+    <br>
+                    {% for row in inventory_data %}
+                    <div class="wrapper">
+                        <div class="container2">
+                            <div class="box">
+                                <h2 class="heading">Current Customers</h2>
+                                <br>
+                                <p class="value">{{ row[3] }}</p>
+                            </div>
+                        </div>
+                        <div class="container2">
+                            <div class="box">
+                                <h2 class="heading">Current Products</h2>
+                                <br>
+                                <p class="value">{{ row[1] }}</p>
+                            </div>
+                        </div>
+                        <div class="container2">
+                            <div class="box">
+                                <h2 class="heading">Total Orders</h2>
+                                <br>
+                                <p class="value">{{ row[5] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+          
+    <br><br><hr><br><br>
+    <h1>CONTACT US</h1>
+    <div class="wrapper">
+        <div class="verify-container">
+            <div class="order-details">
+                    <!-- Contact information for MANAS S KULKARNI -->
+                    <h3> 1] LIKITHA B.K </h3>
+                    <p>USN: 1RF21CS064</p>
+                    <p>NUMBER: 9739591277</p>
+                    <p>EMAIL : rvit21bcs077.rvitm@rvei.edu.in</p>
+            </div>
+        </div>
+        <div class="verify-container">
+            <div class="order-details">
+                    <!-- Contact information for LIKITHA B.K -->
+                    <h3>2]  MANAS S KULKARNI</h3>
+                    <p>USN: 1RF21CS065</p>
+                    <p>NUMBER: 9945401508</p>
+                    <p>EMAIL:  rvit21bcs054rvitm@rvei.edu.in</p>
+            </div>
+        </div>
+    </div>
+    </center>
+    <br><br>
+    
+</body>
+</html>

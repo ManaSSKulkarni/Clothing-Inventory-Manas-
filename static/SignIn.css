@@ -1,0 +1,93 @@
+/* Apply styles to the entire body of the document */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0; /* Remove default body margin */
+}
+
+/* Style the header section */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Style the logo image */
+header img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Style the main title */
+header h1 {
+    margin-top: 10px;
+    color: whitesmoke;
+    font-family: 'Georgia', serif;
+}
+header h2 {
+    margin-top: 10px;
+    color: lightskyblue;
+}
+
+/* Center the content in the body */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style the login container */
+.login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form within the login container */
+.login-container form {
+    text-align: left;
+}
+
+/* Style labels for form inputs */
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style form input fields */
+.login-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style the submit button */
+.login-container button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+li {
+    display: inline;
+    margin-right: 10px; /* Add some spacing between the navigation items */
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: black;
+}

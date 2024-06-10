@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='SignIn.css') }}"> <!-- Link to the external CSS file -->
+        <title>SIGN IN</title>
+    </head>
+    <header>
+        <br>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br>
+        <h1>CLOTHING INVENTORY</h1>
+        <h2>CUSTOMER LOGIN</h2>
+    </header>
+
+<br><br>
+
+<body>
+    <center>
+    <div class="login-container">
+        <form action="{{ url_for('login') }}" method="post"> <!-- Form to gather user information and submit it -->
+            <!-- Input field for Name -->
+            <label for="name">NAME :</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <!-- Input field for Address -->
+            <label for="address">USER NAME :</label>
+            <input type="text" id="username" name="username" required>
+            <!-- Submit button to submit the form -->
+            <button type="submit">LOGIN</button>
+        </form>
+
+        {% if error %}
+            <br>
+            <p>{{ error }}</p>
+        {% endif %}
+
+    </div>
+    </center>
+</body>
+</html>

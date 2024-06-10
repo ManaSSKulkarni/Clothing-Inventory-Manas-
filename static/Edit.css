@@ -1,0 +1,111 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgrey;; 
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #333
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: yellow;
+}
+
+header h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Container styles */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-floating {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid lightgray; /* Gray border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: blue; /* Blue border on focus */
+}
+
+.form-floating input[type="date"] {
+    padding: 6px 10px; /* Adjust padding for date input */
+}
+
+/* Button styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: blue; /* Blue button */
+    color: white; /* White text */
+}
+
+.btn-primary:hover {
+    background-color: blue; /* Darker blue on hover */
+}
+/* Dropdown menu */
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: darkgrey;
+    background-color: white;
+    background-clip: padding-box;
+    border: 1px solid white;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

@@ -1,0 +1,251 @@
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+header {
+    background-color: #333;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: yellow;
+}
+header h2{
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header img {
+    max-width: 70%;
+    max-height: 300px;
+    height: auto;
+}
+
+h1 {
+    color: darkorchid; 
+    font-family: 'Trebuchet MS', sans-serif;
+    
+}
+
+h2 {
+    color: black; 
+    font-family: 'Georgia', serif;
+}
+
+h3 {
+    color: darkmagenta;
+    font-family: 'Georgia', serif;
+    text-decoration: underline;
+}
+
+
+p {
+    font-family: 'Arial', sans-serif;
+}
+
+nav {
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px; 
+}
+
+.nav-box {
+    text-decoration: none;
+    color: lightskyblue;
+    padding: 40px 40px; /* Adjust padding for box size */
+    display: inline-block;
+    margin-right: 10px; 
+    border-radius: 5px;
+    background-color: #333; 
+    transition: background-color 0.5s ease; /* Smooth transition */
+}
+
+.nav-box:hover {
+    background-color: lightseagreen; 
+}
+
+
+.icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    margin-right: 10px; /* Add some space between the icon and the text */
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 45px auto;
+    max-width: 1000px;
+}
+
+.verify-container {
+    flex: 0 0 calc(50% - 20px);
+    padding: 15px 20px;
+    background-color: transparent;
+    border: 3px solid black;
+    border-radius: 8px;
+    color: black;
+    margin-bottom: 10px;
+}
+.verify-container:not(:last-child) {
+    margin-right: 20px; /* Add margin only to the right of the containers except the last one */
+}
+
+.order-details {
+    color: black;
+    padding-right: 2px;
+}
+
+.order-details p {
+    margin: 5px 0;
+}
+.container2 {
+    flex: 0 0 calc(33.33% - 50px);
+    padding: 15px 20px;
+    background-color: #234;
+    border: 3px solid white;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 10px;
+    transition: background-color 0.7s ease;
+}
+
+.box {
+    width: 200px;
+    padding: 20px;
+}
+
+.heading {
+    text-decoration: underline;
+    color: lightseagreen;
+}
+
+.value {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.container2:hover {
+    cursor: default;
+    background-color: grey;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+button {
+    font-size: 24px;
+    padding: 40px 40px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: aqua;
+    color: darkblue;
+    border-radius: 8px;
+}
+button:hover {
+    text-decoration: underline;
+    background-color: lightcoral;
+    transition: 70ms;
+}
+
+
+/* Toggle icon */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.hidden-checkbox {
+    display: none;
+}
+
+/* Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #243;
+    padding: 20px;
+    transition: left 0.7s ease;
+    z-index: 999;
+}
+
+.hidden-checkbox:checked ~ .menu-toggle + .menu {
+    left: 0;
+    color: black;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+.menu li {
+    margin-bottom: 50px;
+    color: black;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu li a:hover {
+    color: lightseagreen;
+}
+
+.nav-box {
+    padding: 10px 10px;
+    border-radius: 5px;
+    background-color: lightgrey;
+    color: black;
+    margin-bottom: 30px;
+}
+
+/* Ensure the checkbox is visible for accessibility */
+.hidden-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 3px;
+    height: 3px;
+}
+

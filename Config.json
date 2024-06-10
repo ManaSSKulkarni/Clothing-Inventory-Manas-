@@ -1,0 +1,10 @@
+{
+  "parameters":
+  {
+    "local_server" : "True",
+    "local_url": "mysql+pymysql://root:@localhost:3306/clothing_inventory",
+    "prod_url": "mysql+pymysql://root:@localhost:3306/clothing_inventory",
+    "admin_username" : "LikithaManas@RVITM",
+    "admin_password" : "ClothingInventory@RVITM"
+  }
+}

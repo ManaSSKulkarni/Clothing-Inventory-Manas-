@@ -1,0 +1,102 @@
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: yellow;
+}
+header h2{
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h3{
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+hr {
+    border-color: black;
+    margin: 10px auto;
+    width: 50%;
+}
+header img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Subheading styles */
+.subheading {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    padding: 8px;
+    border-bottom: 1px solid lightgreen;
+    text-align: left;
+    color: white;
+}
+
+/* Button styles */
+.btn {
+    padding: 8px 16px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: blue;
+}
+
+/* Adjusting link color */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

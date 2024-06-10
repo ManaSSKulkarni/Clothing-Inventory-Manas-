@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='PrintingBill.css') }}"> <!-- Link to the external CSS file -->
+        <title>SIGN IN</title>
+    </head>
+    <header>
+        <br>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br>
+        <h1>CLOTHING INVENTORY</h1>
+        <h2> ORDER PLACED! </h2>
+    </header>
+    <body>
+        <center>
+            <br><br>
+            <br><br>
+            <div class="verify-container">
+                <div class="order-details">
+                    <h3> ORDER DETAILS </h3>
+                    <p><strong>NAME : </strong> {{ name }}</p>
+                    <p><strong>CONTACT : </strong> {{ cust_contact }}</p>
+                    <p><strong>EMAIL : </strong> {{ cust_email }}</p>
+                    <br>
+                    <p><strong>YOUR ORDER :</strong></p>
+                    <table border="1">
+                        <tbody>
+                            <table>
+                                <tr>
+                                    <th>Garment</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                                {% for garment, details in cart.items() %}
+                                    <tr>
+                                        <td>[{{ details['garment_category'] }}] {{ details['garment_type'] }} ({{ details['g_size'] }})</td>
+                                        <td>{{ details['quantity'] }}</td>
+                                        <td>{{ details['garment_price'] }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            
+                        </tbody>
+                    </table>
+                    <br>
+                    <p><strong>BILL AMOUNT (INR) : </strong> {{ total_amount }}</p>
+                    <br>
+                    <p><strong>PAYMENT MODE : </strong> {{ payment_mode }}</p>
+                </div>
+            </div>
+            <br><br>
+            <form action="/printing_bill" method="POST">
+                <button type="submit" name="order_again">ORDER AGAIN</button>
+                <br><br>
+                <button type="submit" name="back_to_home">HOME</button>
+            </form>
+            <br><br>
+        </center>
+    </body>
+    
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Edit.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br>
+        <h1>CLOTHING INVENTORY</h1>
+        <br>
+        <h2>GARMENT EDIT PAGE</h2>
+        <br>
+    </header>
+    <div class="container">
+        <h1>ADD/EDIT GARMENT</h1>
+            <br>
+            <form id="contactForm" action="{% if garment is none %}/garment_edit/new{% else %}/garment_edit/{{ garment.g_id }}{% endif %}" method="post">
+                <div class="form-floating">
+                    <input class="form-control" id="identity" name="identity" type="text" placeholder="Garment ID..." data-sb-validations="required" value="{{garment.g_id}}" />
+                    <label for="name">GARMENT ID</label>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select" id="category" name="category" data-sb-validations="required">
+                        <option value="LADIES" {% if garment.garment_category == 'LADIES' %} selected {% endif %}>LADIES</option>
+                        <option value="GENTS" {% if garment.garment_category == 'GENTS' %} selected {% endif %}>GENTS</option>
+                    </select>
+                    <label for="category">GARMENT CATEGORY</label>
+                </div>                
+                <div class="form-floating">
+                    <input class="form-control" id="type" name="type" type="text" placeholder="Garment Type..." data-sb-validations="required" value="{{garment.garment_type}}" />
+                    <label for="name">GARMENT TYPE</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="size" name="size" type="number" placeholder="Garment Size..." data-sb-validations="required" value="{{garment.g_size}}" />
+                    <label for="name">GARMENT SIZE</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="quantity" name="quantity" type="number" placeholder="Garment Available Quantity ..." data-sb-validations="required" value="{{garment.available_quantity}}" />
+                    <label for="name">AVAILABLE QUANTITY</label>
+                </div>
+                
+                <div class="form-floating">
+                    <input class="form-control" id="price" name="price" type="text" placeholder="Garment Price..." data-sb-validations="required" value="{{garment.g_price}}" />
+                    <label for="name">GARMENT PRICE</label>
+                </div>
+                <br>
+                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">SUBMIT</button>
+            </form>
+    </div>
+
+
+    </body>
+</html>

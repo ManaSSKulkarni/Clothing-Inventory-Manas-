@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='SignIn.css') }}"> <!-- Link to the external CSS file -->
+        <title>SIGN IN</title>
+    </head>
+    <header>
+        <br>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br>
+        <h1>CLOTHING INVENTORY</h1>
+        <h2>ENTER YOUR DETAILS</h2>
+    </header>
+
+<br><br>
+
+<body>
+    <center>
+    <div class="login-container">
+        <form action="{{ url_for('sign_in') }}" method="post"> <!-- Form to gather user information and submit it -->
+            <!-- Input field for Name -->
+            <label for="name">NAME :</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <!-- Input field for Address -->
+            <label for="address">USER NAME :</label>
+            <input type="text" id="username" name="username" required>
+            <label for="address">EMAIL :</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <!-- Input field for Phone Number -->
+            <label for="phone">CONTACT NUMBER :</label>
+            <input type="tel" id="phone" name="phone" required>
+            <br>
+            <label for="payment_mode">PAYMENT MODE:</label>
+                <select id="payment_mode" name="mode" required>
+                    <option value="CASH">CASH</option>
+                    <option value="CREDIT/DEBIT">CREDIT/DEBIT</option>
+                    <option value="UPI">UPI</option>
+                    <option value="NET BANKING">NET BANKING</option>
+                </select>
+            <!-- Submit button to submit the form -->
+            <br><br><br>
+            <button type="submit">ENTER</button>
+        </form>
+    </div>
+
+    <br><br>
+    IF EXISTING CUSTOMER :-  <li><a href="{{ url_for('login') }}">LOGIN</a></li>
+    <br><br>
+    </center>
+</body>
+</html>

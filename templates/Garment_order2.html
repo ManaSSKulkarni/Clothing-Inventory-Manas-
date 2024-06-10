@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Placeorder.css') }}"> <!-- Link to the external CSS file -->
+        <title>SIGN IN</title>
+    </head>
+    <header>
+    <center>
+        <br>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br><br>
+        <h1>CLOTHING INVENTORY</h1>
+        <br>
+        <h2>ENTER QUANTITY <br></h2>
+        <br>
+    </header>
+    <body>
+        <center>
+        <br><br><br>
+        <h2>YOUR ORDER HISTORY</h2>
+        <br>
+        <div class="order-history">
+            {% if order_history %}
+                <table border="3">
+                    <tr>
+                        <th>Order Date</th>
+                        <th>Bill Amount</th>
+                    </tr>
+                    {% for order in order_history %}
+                        <tr>
+                            <td>{{ order.order_date }}</td>
+                            <td>{{ order.bill_amt }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>NO ORDERS</p>
+            {% endif %}
+        </div>
+        <br><br>
+        <hr>
+        <br><br>
+        <h2>PLACE YOUR ORDER</h2>
+        <form action="/garmentorder2" method="post" class="garment-form">
+            <table border="1">
+                <tr>
+                    <th>CATEGORY</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>AVAILABLE</th>
+                    <th>ENTER QUANTITY</th>
+                </tr>
+                {% for garment in garments %}
+                <tr>
+                    <td>{{ garment.garment_category }}</td>
+                    <td>{{ garment.garment_type }}</td>
+                    <td>{{ garment.g_size }}</td>
+                    <td>{{ garment.g_price }}</td>
+                    <td>{{ garment.available_quantity }}</td>
+                    <td>
+                        <input type="number" name="entered_quantity_{{ garment.g_id }}" min="0" max="{{ garment.available_quantity }}" value="0">
+                        <!-- hidden input fields to store additional garment information -->
+                        <input type="hidden" name="g_id" value="{{ garment.g_id }}">
+                        <input type="hidden" name="garment_type" value="{{ garment.garment_type }}">
+                        <input type="hidden" name="garment_size" value="{{ garment.g_size }}">
+                        <input type="hidden" name="garment_category" value="{{ garment.garment_category }}">
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <input type="submit" value="Add to Cart">
+        </form>
+        
+        
+
+
+</html>

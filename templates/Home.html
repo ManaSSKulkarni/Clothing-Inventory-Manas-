@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Basic.css') }}">
+    </head>
+    <header>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br><br>
+        <h1>CLOTHING INVENTORY</h1>
+        <h2>HOME PAGE</h2>
+        <br>
+    </header>
+<input type="checkbox" id="menu-toggle" class="hidden-checkbox">
+<label for="menu-toggle" class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+<nav class="menu">
+    <ul>
+       <br><li><a href="{{ url_for('sign_in') }}"><div class="nav-box"><h2>PLACE YOUR ORDER</h2></div></a></li>
+        <br><li><a href="{{ url_for('admin_login') }}"><div class="nav-box"><h2>ADMIN LOGIN</h2></div></a></li>
+        <li><a href="{{ url_for('about') }}"><div class="nav-box"><h2>ABOUT US</h2></div></a></li>
+    </ul>
+</nav>
+<body>
+    <br>
+    <div class="wrapper">
+        <div class="verify-container">
+            <div class="order-details">
+                <p><h3>PREPARED BY</h3>
+                    <br> 1. LIKITHA B.K (USN : 1RF21CS064)
+                    <br> 2. MANAS S KULKARNI (USN: 1RF21CS065) 
+                </p>
+            </div>
+        </div>
+        <br><br>
+        <div class="verify-container">
+            <div class="order-details">
+                <p><h3>CLOTHES CATEGORIES</h3> 
+                    <br>LADIES <br> GENTS 
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <br><br>
+        <form action="{{ url_for('home') }}" method="POST">
+            <button type="submit" name="category" value="placeorder" class="gents-btn">PLACE ORDER</button>
+        </form>
+    </div>
+    <br><br>
+    <br><br>
+    ClothingInventoryRVITM
+</body>
+</html>

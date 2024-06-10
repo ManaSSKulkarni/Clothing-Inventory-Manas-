@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Placeorder.css') }}"> <!-- Link to the external CSS file -->
+        <title>SIGN IN</title>
+    </head>
+    <header>
+    <center>
+        <br>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br><br>
+        <h1>CLOTHING INVENTORY</h1>
+        <br>
+        <h2>WELCOME <br>{{ name }} !</h2>
+        <br>
+    </header>
+    <br><br>
+    <body>
+        <center>
+        <br><br><br>
+        <h2>YOUR ORDER HISTORY</h2>
+        <br>
+        <div class="order-history">
+            {% if order_history %}
+                <table border="3">
+                    <tr>
+                        <th>Order Date</th>
+                        <th>Bill Amount</th>
+                    </tr>
+                    {% for order in order_history %}
+                        <tr>
+                            <td>{{ order.order_date }}</td>
+                            <td>{{ order.bill_amt }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>NO ORDERS</p>
+            {% endif %}
+        </div>
+        <br><br>
+        <hr>
+        <br><br>
+        <div class="cart-items">
+            <h3>CART ITEMS</h3>
+            <br>
+            {% if cart %}
+                <ul>
+                    {% for garment_id, garment_info in cart.items() %}
+                        <li>[{{ garment_info['garment_category'] }}] {{ garment_info['garment_type'] }} ({{ garment_info['g_size'] }}) : {{ garment_info['quantity'] }}</li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <br>
+                <p>Your cart is empty.</p>
+            {% endif %}
+        </div>
+        <br><br>
+        <hr>
+        <br><br><br>
+        <h2>NEW ORDER</h2>
+        <form action="/garmentorder1" method="POST" class="garment-form">
+            <br><br>
+            <div class="garment-container">
+                {% set garment_types = [] %}
+                {% for garment in garments %}
+                    {% if garment.garment_type not in garment_types %}
+                        {% set _ = garment_types.append(garment.garment_type) %}
+                        <div class="garment-item">
+                            <!-- Use a button instead of a label -->
+                            <button type="submit" name="garment_type" value="{{ garment.garment_type }}">
+                                <h3>{{ garment.garment_type }}</h3> 
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <br><br>
+            <!-- Hide the submit button -->
+            <input type="submit" style="display: none;">
+        </form>  
+        
+    </center>
+
+    </body>
+</html>

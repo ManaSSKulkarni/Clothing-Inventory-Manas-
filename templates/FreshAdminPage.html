@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='freshadminpage.css') }}">
+</head>
+<header>
+    <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+    <br><br>
+    <h1>CLOTHING INVENTORY</h1>
+    <h2>ADMIN PAGE</h2>
+    <br>
+</header>
+<body>
+    <center>
+    <div class="container">
+        <br><br>
+        <form action="{{ url_for('adminpage') }}" method="POST">
+            <button type="submit" name="employees" value="EMPLOYEES" class="gents-btn">EMPLOYEES</button>
+        </form>
+        <form action="{{ url_for('adminpage') }}" method="POST">
+            <button type="submit" name="garments" value="GARMENTS" class="ladies-btn">GARMENTS</button>
+        </form>
+        <form action="{{ url_for('adminpage') }}" method="POST">
+            <button type="submit" name="orders" value="ORDERS" class="orders-btn">ORDERS</button>
+        </form>
+        <br><br>
+    </div>
+    <br><hr><br>
+    <a href="/logout"><button class="logout-btn">LOGOUT</a></button>
+    <br><br>
+    </center>
+</body>
+</html>

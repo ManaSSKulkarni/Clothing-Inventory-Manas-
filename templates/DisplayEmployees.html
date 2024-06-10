@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='displaytable.css') }}">
+</head>
+<header>
+    <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+    <br><br>
+    <h1>CLOTHING INVENTORY</h1>
+    <h2>ADMIN PAGE</h2>
+    <br>
+</header>
+<body>
+    <center>
+        <br><br>   
+        <br><br>
+            <h2>EMPLOYEES</h2>
+            <div class="container">
+                <br>
+                <table class="table" border="3">
+                    <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>NAME</th>
+                        <th>CONTACT NUMBER</th>
+                        <th>DATE OF JOINING</th>
+                        <th>SALARY</th>
+                        
+                    </tr>
+                    </thead>
+                    <br>
+                    <tbody>
+    
+                        {% for employee in employees %}
+    
+                        <tr>
+                            <td>{{employee.emp_id}}</td>
+                            <td>{{employee.emp_name}}</td>
+                            <td>{{employee.emp_phone}}</td>
+                            <td>{{employee.date_of_joining}}</td>
+                            <td>{{employee.emp_salary}}</td>
+                            <td><a href="/employee_edit/{{employee.emp_id}}"><button class="btn btn-primary text-uppercase">EDIT</button></a></td>
+                            <td><a href="/employee_delete/{{employee.emp_id}}"><button class="btn btn-primary text-uppercase">DELETE</button></a></td>
+                        </tr>
+    
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/employee_edit/0"><button class="btn btn-primary text-uppercase">ADD EMPLOYEE</a></button>
+                <br><br><br>
+                <a href="/adminpage"><button class="btn btn-primary text-uppercase">ADMIN PAGE</a></button>
+            </div>
+        </center>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Verify.css') }}"> <!-- Link to the external CSS file -->
+        <title>SIGN IN</title>
+    </head>
+    <header>
+        <br>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br>
+        <h1>CLOTHING INVENTORY</h1>
+        <h2>VERIFY YOUR ORDER</h2>
+    </header>
+<body>
+    <center>
+        <br><br><br><br>
+        <div class="verify-container">
+            <div class="order-details">
+                <p>Order Details</p>
+                <ul>
+                    {% for garment_id, garment_info in cart.items() %}
+                        <li>[{{ garment_info['garment_category'] }}] {{ garment_info['garment_type'] }} ({{ garment_info['g_size'] }}) : {{ garment_info['quantity'] }}</li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+    <br><br><br>
+    <form action="/verify" method="post">
+        <button type="submit" name="add_more">ADD MORE TO CART</button>
+        <br><br>
+        <button type="submit" name="place_order">CONFIRM ORDER</button>
+    </form>
+
+<br>
+<br>
+    </center>
+    <br><br>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <center>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking to the CSS file in the static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Basic.css') }}">
+    <title>Contact Page - Clothing Inventory</title>
+    </center>
+</head>
+<header>
+    <!-- Logo displayed above the first title -->
+    <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+    <h1>CLOTHING INVENTORY</h1>
+    <br>
+    <h2>CONTACT US</h2>
+    <br>
+</header>
+<body>
+    <center>
+</center>
+<div class="wrapper">
+    <div class="verify-container">
+        <div class="order-details">
+                <!-- Contact information for MANAS S KULKARNI -->
+                <h3> 1] LIKITHA B.K </h3>
+                <p>USN: 1RF21CS064</p>
+                <p>NUMBER: 9739591277</p>
+                <p>EMAIL : rvit21bcs077.rvitm@rvei.edu.in</p>
+        </div>
+    </div>
+    <div class="verify-container">
+        <div class="order-details">
+                <!-- Contact information for LIKITHA B.K -->
+                <h3>2]  MANAS S KULKARNI</h3>
+                <p>USN: 1RF21CS065</p>
+                <p>NUMBER: 9945401508</p>
+                <p>EMAIL:  rvit21bcs054rvitm@rvei.edu.in</p>
+        </div>
+    </div>
+</div>
+<br><br>
+<nav>
+    <!-- Side navigation bar linking to other pages -->
+    <ul>
+        <li><a href="{{ url_for('home') }}"><div class="nav-box"> <h2>HOME</h2><br> Home Page<br></div></a></li>
+        <li><a href="{{ url_for('about') }}"><div class="nav-box"><h2>ABOUT THE INVENTORY</h2><br>  To know more about the Inventory</div></a></li>
+        <li><a href="{{ url_for('admin_login') }}"><div class="nav-box"><h2>ADMIN LOGIN</h2><br>   Admin Login</div></a></li>
+        <li><a href="{{ url_for('sign_in') }}"><div class="nav-box"><h2>PLACE YOUR ORDER</h2><br>   SIGN IN or LOGIN and PLACE order</div></a></li>
+    </ul>
+</nav>
+<br><br><br>
+footer
+</body>
+</html>

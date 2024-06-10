@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='displaytable.css') }}">
+</head>
+<header>
+    <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+    <br><br>
+    <h1>CLOTHING INVENTORY</h1>
+    <h2>ADMIN PAGE</h2>
+    <br>
+</header>
+<body>
+    <center>
+        <br><br>   
+        <br><br>
+            <h2>ORDERS</h2>
+            <div class="container">
+                <br>
+                <table class="table" border="3">
+                    <thead>
+                    <tr>
+                        <th>ORDER NUMBER</th>
+                        <th>ORDER DATE</th>
+                        <th>ORDERED BY</th>
+                        <th>BILL AMT</th>
+                        
+                    </tr>
+                    </thead>
+                    <br>
+                    <tbody>
+    
+                        {% for order in orders %}
+    
+                        <tr>
+                            <td>{{order.order_number}}</td>
+                            <td>{{order.order_date}}</td>
+                            <td>{{order.ordered_by}}</td>
+                            <td>{{order.bill_amt}}</td>
+                            <td><a href="/order_delete/{{order.order_number}}"><button class="btn btn-primary text-uppercase">DELETE</button></a></td>
+                        </tr>
+    
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+            <a href="/adminpage"><button class="btn btn-primary text-uppercase">ADMIN PAGE</a></button>
+            <br><br><br>
+        </center>
+</body>
+</html>

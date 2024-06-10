@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Edit.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+        <br>
+        <h1>CLOTHING INVENTORY</h1>
+        <br>
+        <h2>EMPLOYEE EDIT PAGE</h2>
+        <br>
+    </header>
+    <div class="container">
+        <h1>ADD/EDIT EMPLOYEE</h1>
+            <br>
+            <form id="contactForm" action="/employee_edit/{{'0' if employee is none else employee.emp_id}}" method="post">
+                <div class="form-floating">
+                    <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" value="{{employee.emp_name}}" />
+                    <label for="name">EMPLOYEE NAME</label>
+                </div>
+                <div class="form-floating">
+                    <input type="tel" class="form-control" id="phone" name="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required,email" value="{{employee.emp_phone}}" />
+                    <label for="phone">CONTACT NUMBER</label>
+                </div>
+                <div class="form-floating">
+                    <input type="date" class="form-control" id="date" name="date" placeholder="Date of joining" data-sb-validations="required" value="{{employee.date_of_joining}}" />
+                    <label for="phone">DATE OF JOINING</label>
+                </div>
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Salary" data-sb-validations="required" value="{{employee.emp_salary}}" />
+                    <label for="message">SALARY</label>
+                </div>
+                <br>
+                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">SUBMIT</button>
+            </form>
+    </div>
+
+
+    </body>
+</html>

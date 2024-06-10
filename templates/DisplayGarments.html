@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='displaytable.css') }}">
+</head>
+<header>
+    <img src="{{ url_for('static', filename='RVLogo.png') }}" alt="Logo">
+    <br><br>
+    <h1>CLOTHING INVENTORY</h1>
+    <h2>ADMIN PAGE</h2>
+    <br>
+</header>
+<body>
+    <center>
+        <br><br>   
+        <br><br>
+        <h2>GARMENTS</h2>
+        <br><br><br>
+            <div class="garment-container">
+                {% for garment in garments %}
+                <div class="garment-item">
+                    <label for="{{ garment.garment_type }}">
+                        <h3>{{ garment.garment_type }} [ {{garment.garment_category}} ]</h3> SIZE : {{ garment.g_size }}
+                        <hr>
+                        <h4>AVAILABLE: {{ garment.available_quantity }}</h4>
+                        <h5>PRICE: {{ garment.g_price }}</h5>
+                    </label>
+                    <hr><br>
+                    <a href="/garment_edit/{{garment.g_id}}"><button class="btn btn-primary text-uppercase">EDIT</button></a></td>
+                    <a href="/garment_delete/{{garment.g_id}}"><button class="btn btn-primary text-uppercase">DELETE</button></a></td>
+                </div>
+                {% endfor %}
+            </div>
+            <br><br>
+            <a href="/garment_edit/new"><button class="btn btn-primary text-uppercase">ADD GARMENT</a></button>
+            <br><br><br>
+            <a href="/adminpage"><button class="btn btn-primary text-uppercase">ADMIN PAGE</a></button>
+        <br><br>
+</body>
+</html>
